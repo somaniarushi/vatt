@@ -2,12 +2,13 @@ import io
 import os
 import cv2
 import moviepy
-import crepe
+# import crepe
 import numpy
 import csv
-import srt
+# import srt
 
 from time import sleep
+from google.api_core.protobuf_helpers import get_messages
 from google.cloud import translate_v2, speech_v1, texttospeech
 from moviepy.editor import *
 
@@ -222,25 +223,27 @@ prints("Output Language: ", 0.01, 8)
 s2 = str(input()).strip()
 
 #finsing average frequency of the input audio
-lst = list()
-os.system("clear")
-os.system("crepe trying.wav --step-size 100")
+# lst = list()
+# os.system("clear")
+# os.system("crepe trying.wav --step-size 100")
 
-with open ('trying.f0.csv',newline='') as csvfile:
-    data = csv.reader(csvfile, delimiter=',')
-    for row in data:
-        lst.append(row[1])
+# with open ('trying.f0.csv',newline='') as csvfile:
+#     data = csv.reader(csvfile, delimiter=',')
+#     for row in data:
+#         lst.append(row[1])
 
-lst = lst[1:]
-lst = [float(s) for s in lst]
-lst.sort()
-length = len(lst)
+# lst = lst[1:]
+# lst = [float(s) for s in lst]
+# lst.sort()
+# length = len(lst)
 
-DELTA = 0.1
-lst = lst[int(length*DELTA):-int(length*DELTA)]
-frequency = sum(lst) / len(lst)
+# DELTA = 0.1
+# lst = lst[int(length*DELTA):-int(length*DELTA)]
+# frequency = sum(lst) / len(lst)
 
-os.system("clear")
+# os.system("clear")
+
+frequency = 400
 
 """ Ideas: Randomized language """
 
